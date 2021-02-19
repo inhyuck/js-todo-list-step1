@@ -35,4 +35,27 @@
       </main>
     </div>
   </body>
+
+  <script>
+    const newTodoElem = document.querySelector('#new-todo-title');
+    const todoListElem = document.querySelector('#todo-list');
+
+    newTodoElem.addEventListener('keypress', event => {
+      if (event.key === 'Enter') {
+        const title = newTodoElem.value;
+        todoListElem.innerHTML += `
+          <li>
+            <div class="view">
+              <input class="toggle" type="checkbox"/>
+              <label class="label">${title}</label>
+              <button class="destroy"></button>
+            </div>
+            <input class="edit" value="${title}" />
+          </li>
+        `; 
+
+        newTodoElem.value = '';
+      }
+    });
+  </script>
 </html>
